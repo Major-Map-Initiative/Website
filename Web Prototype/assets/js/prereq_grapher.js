@@ -102,7 +102,6 @@ function gen_graph(course, prereqs) {
     return graph;
 }
 
-console.log("fetching");
 fetch("../../data/master_prereqs.json")
     .then(function (resp) {
         return resp.json();
@@ -244,7 +243,12 @@ fetch("../../data/master_prereqs.json")
                 tip = svg.append("g")
                 .attr("class", "tooltip2")
                 // .attr("id", "tip")
-                tip.attr("transform", "translate(" + (d3.event.pageX + -18)  + "," + (d3.event.pageY  - 212) + ")");
+                //d3.event.pageY -212
+                //d3.event.pageX + - 18
+                console.log(d3.event.pageX + "," +  d3.event.pageY);
+                tip.attr("transform", "translate(" + (d3.event.pageX )  + "," + (d3.event.pageY - 571 ) + ")");
+                console.log(tip);
+
 
                 let rect = tip.append("rect").transition().duration(200)
                 .attr("rx", 6)
@@ -253,6 +257,7 @@ fetch("../../data/master_prereqs.json")
                 .style("stroke", "steelblue")
                 .style("opacity", .9);
 
+                console.log(d.description);
                 tip.append("text")
                 .text(d.description)
                 .attr("dy", "1em")
