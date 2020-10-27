@@ -242,12 +242,15 @@ fetch("../../data/master_prereqs.json")
 
                 tip = svg.append("g")
                 .attr("class", "tooltip2")
-                // .attr("id", "tip")
-                //d3.event.pageY -212
-                //d3.event.pageX + - 18
-                console.log(d3.event.pageX + "," +  d3.event.pageY);
+                /**
+                    Below is the offsets they had on the old website
+                     .attr("id", "tip")
+                    d3.event.pageY -212
+                    d3.event.pageX + - 18
+                 */
+                //console.log(d3.event.pageX + "," +  d3.event.pageY); Printing location of node on screen
                 tip.attr("transform", "translate(" + (d3.event.pageX )  + "," + (d3.event.pageY - 571 ) + ")");
-                console.log(tip);
+                //console.log(tip);, printing out tooltip obj
 
 
                 let rect = tip.append("rect").transition().duration(200)
@@ -257,7 +260,14 @@ fetch("../../data/master_prereqs.json")
                 .style("stroke", "steelblue")
                 .style("opacity", .9);
 
-                console.log(d.description);
+                /*
+                 * Gotta use regExp to filter out excess \n, \t, and double spaces, in prereqs.json
+                 * before putting them in text area.
+                 * /(\n|\t)/g looks for \n or \t and reaplces with empty string
+                 * /  +/ looks for 2 or more spaces, and replaces with 1 space
+                 */
+                $("#mapTextArea").text(`${d.course.replace(/(\n|\t)/g, "")} ${d.name.replace(/(\n|\t)/g, "").replace(/  +/g," ")}:\n${d.description.replace(/(\n|\t)/g, "").replace(/  +/g," ")}`); //attr("src", d.description);
+
                 tip.append("text")
                 .text(d.description)
                 .attr("dy", "1em")
