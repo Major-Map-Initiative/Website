@@ -26,27 +26,35 @@
 				border: 4px solid #adadbe;
 				width: 1200px;
 				height: 250px;
-				resize: both;
+				resize: none;
 				/* work on making this auto adjust depending on text, not hard code width and height"
 				resize: none;
-			}
-			.tut{
-				padding: 50px;
-				border: 4px solid #adadbe;
-				/*
-				display:flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				justify-content: space-around;
 				*/
 			}
-			.tutCard{
-				display: flex;
-				border: 4px solid #adadbe;
-				flex-direction: column;
-				align-self: center;
-				margin-bottom: 50px;
+			.tut{
+				display: grid;
+				grid-gap: 10px;
+				padding: 10px;
+				grid-template-areas:
+				"tut tut"
+				"card1 card2"
+				"card3 card4"
+				;
 			}
+			.tutCard{
+				padding-right: 20px;
+				/*border: 4px solid #adadbe;*/
+			}
+			.grid-cont{
+			  display: grid;
+			  grid-gap: 10px;
+			  padding: 10px;
+			  grid-template-areas:
+			  "tag tag"
+			  "map textArea"
+			  ;
+			}
+
 
 
 		</style>
@@ -96,10 +104,10 @@
 
 
 
+			<div style="padding-left: 20px; padding-top: 20px">
 
-				<div style="padding: 50px">
             		<p><i>Warning: May not be mobile friendly!</i></p>
-		            <div >
+		            <div>
 		              <label for="tags" >Enter a course: </label>
 
 		              <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -108,41 +116,46 @@
 		              <input placeholder = "e.g. MATH 109" onfocus="this.value=''" id="parent_course" style="color:black">
 		              <!-- <button id="display" class="first last">Generate prerequisite map</button> -->
 		              <button id = "display" type="submit" class="btn btn-primary">Generate prerequisite map</button>
-				  </div>
+					</div>
 
 
-				  <div id="map_text_box">
-		            <div id = "mapper_div" style="
-					    margin-top: 25px;
-					    border-radius: 25px;
-					    width: 1200px;
-					    height: 850px;
-					    border: 4px solid #adadbe;
-					    background: rgb(235, 230, 230);
-						font-size: 10pt;
-					"> </div>
-					<textarea readonly="true" id ="mapTextArea">
-Course Description: Click on a node after searching!
-					</textarea>
-
-				</div>
-
-				</div>
 
 
-				<div style="padding:50px">
+					<div id="map_text_box" style="padding-top: 10px; padding-bottom: 10px">
+			            <div id = "mapper_div" style="
+							padding-bottom: 50px;
+						    border-radius: 25px;
+						    width: 1200px;
+						    height: 850px;
+						    border: 4px solid #adadbe;
+						    background: rgb(235, 230, 230);
+							font-size: 10pt;
+						"> </div>
+					</div>
+
+
+						<textarea readonly="true" id ="mapTextArea">
+	Course Description: Click on a node after searching!
+						</textarea>
+			</div>
+
+
+
+				<div class="tut">
+
+
+				<div style="padding:50px grid-area: tut">
 					<h2>Tutorial</h2>
 	        		<p><i>Note: Examples used in the tutorial may be inaccurate for the sake of simplification and/or due to updated course catalogs.</i></p>
 				</div>
 
-				<div class="tut">
-					<div class="tutCard">
-						<img src="images/tut_hover.png" alt="Card Img Cap">
+					<div class="tutCard" style="grid-area:card1">
+						<img src="images/tut_hover_copy.png" alt="Card Img Cap" >
 						<div>
                   			<h5>Hover on a course node to display the title.</h5>
 						</div>
 					</div>
-					<div class="tutCard">
+					<div class="tutCard" style="grid-area:card2">
                 		<img src="images/tut_click_copy.png" alt="Card image cap">
 						<div>
 	                  		<h5>Click on a course node to show its description.</h5>
@@ -151,15 +164,15 @@ Course Description: Click on a node after searching!
                 	</div>
 
 
-					<div class="tutCard">
-					  <img  src="images/tut_untanglement.png" alt="Card image cap">
+					<div class="tutCard" style="grid-area:card3">
+					  <img  src="images/tut_untanglement_copy.png" alt="Card image cap">
 					  <div>
 						  <h5>Maps may generate messily.</h5>
 						  <p>Drag nodes around to rearrange however you like. </p>
 					  </div>
 					</div>
 
-					<div class="tutCard">
+					<div class="tutCard"  style="grid-area:card4">
 						<img src="images/tut_colors.png" alt="Card image cap">
 						<div>
 							<h5>Arrow colors indicate groupings. </h5>
@@ -171,7 +184,6 @@ Course Description: Click on a node after searching!
 					</div>
 
 				</div>
-
 
 					<!-- removed footer to seperate file so we only gotta change one thing -->
 						<div id="footerDiv"> </div>
