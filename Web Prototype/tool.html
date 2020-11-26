@@ -24,10 +24,17 @@
 			}
 			#mapTextArea{
 				border: 4px solid #adadbe;
-				width: 1200px;
 				height: 250px;
-				resize: none;
+				/*width: 1200px;
+				*/
+				/*resize: none;*/
+
 				/* work on making this auto adjust depending on text, not hard code width and height"
+				autogrow kinda works, there needs to be a event on the page in order for the box to adjust.
+
+
+
+
 				resize: none;
 				*/
 			}
@@ -125,7 +132,7 @@
 			            <div id = "mapper_div" style="
 							padding-bottom: 50px;
 						    border-radius: 25px;
-						    width: 1200px;
+						    /* width: 1200px; */
 						    height: 850px;
 						    border: 4px solid #adadbe;
 						    background: rgb(235, 230, 230);
@@ -134,20 +141,91 @@
 					</div>
 
 
+
 						<textarea readonly="true" id ="mapTextArea">
 	Course Description: Click on a node after searching!
 						</textarea>
+
 			</div>
+
+
+
+			<div style="padding:20px">
+				<h2>Tutorial</h2>
+        		<p><i>Note: Examples used in the tutorial may be inaccurate for the sake of simplification and/or due to updated course catalogs.</i></p>
+			</div>
+
+			<section id="one" class="spotlights">
+				<section>
+					<!-- main.css treats links with image children different, and I like how it looks so ima just put a linkless link-->
+					<a class='image'>
+						<img src="images/tut_hover_copy.png" alt="" data-position="center center" />
+					</a>
+					<div class="content">
+						<div class="inner">
+                  			<h5>Hover on a course node to display the title.</h5>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<a  class="image">
+						<img src="images/tut_click_copy.png" alt="" data-position="center center" />
+					</a>
+					<div class="content">
+						<div class="inner">
+	                  		<h5>Click on a course node to show its description.</h5>
+	                  		<p >There may be additional details in between asterisks at the end of the description. </p>
+						</div>
+					</div>
+				</section>
+
+
+				<section>
+					<a  class="image">
+						<img src=" images/tut_untanglement_copy.png " alt="" data-position="center center" />
+					</a>
+					<div class="content">
+						<div class="inner">
+						  <h5>Maps may generate messily.</h5>
+						  <p>Drag nodes around to rearrange however you like. </p>
+						</div>
+					</div>
+				</section>
+
+
+				<section>
+					<a  class="image">
+						<img src=" images/tut_colors.png" alt="" data-position="center center" />
+					</a>
+					<div class="content">
+						<div class="inner">
+							<h5>Arrow colors indicate groupings. </h5>
+							<p>- Arrows of the same color mean that either one satisfies the course they are pointing to. <br>
+							- Black arrows indicate that there are no alternatives for that prerequisite. <br>
+							- In this example, either COGS 109 or COGS 108 (green arrows) can be taken before COGS 118A. Both Math 20E and Math are required.<br>
+							</p>
+						</div>
+					</div>
+				</section>
+
+			</section>
+
+
+
+
+
+
+
+
+
+			<!--
 
 
 
 				<div class="tut">
 
 
-				<div style="padding:50px grid-area: tut">
-					<h2>Tutorial</h2>
-	        		<p><i>Note: Examples used in the tutorial may be inaccurate for the sake of simplification and/or due to updated course catalogs.</i></p>
-				</div>
 
 					<div class="tutCard" style="grid-area:card1">
 						<img src="images/tut_hover_copy.png" alt="Card Img Cap" >
@@ -185,6 +263,7 @@
 
 				</div>
 
+			-->
 					<!-- removed footer to seperate file so we only gotta change one thing -->
 						<div id="footerDiv"> </div>
 
