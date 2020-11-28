@@ -378,7 +378,7 @@ fetch("../../data/master_prereqs.json")
         //Suggestions bar in input
         $( function() {
             var availableTags = $.map(prereqs,function(v,k) { return k; });
-            console.log($("#parent_course"));
+            //console.log($("#parent_course"));
             $( "#parent_course" ).autocomplete({
             // source: availableTags
             source: function(request, response) {
