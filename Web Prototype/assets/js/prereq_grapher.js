@@ -114,7 +114,7 @@ fetch("../../data/master_prereqs.json")
             d3.select("svg").remove();
 
             //Width and height
-            let w = 1200;
+            let w = $("#mapper_div").width(); //allows it to draw in different sized areas;
             let h = 850;
 
             //Selecting input and exception
@@ -378,7 +378,7 @@ fetch("../../data/master_prereqs.json")
         //Suggestions bar in input
         $( function() {
             var availableTags = $.map(prereqs,function(v,k) { return k; });
-            console.log($("#parent_course"));
+            //console.log($("#parent_course"));
             $( "#parent_course" ).autocomplete({
             // source: availableTags
             source: function(request, response) {

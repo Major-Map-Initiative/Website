@@ -3006,6 +3006,12 @@ input, select, textarea {
 					align-items: flex-end;
 				}
 
+
+	/*
+		This css resizes the image based on screen resolution (ex phone, diff screen res)
+			-cut this out b/c image becomes unnessearily large in some screen sizes,
+
+
 		@media screen and (max-width: 1680px) {
 
 			.spotlights > section > .image {
@@ -3054,6 +3060,9 @@ input, select, textarea {
 			}
 
 		}
+
+	*/
+
 
 /* Header */
 
